@@ -1,4 +1,5 @@
 USE codeup_test_db;
+TRUNCATE albums;
 INSERT INTO albums (artist, name, release_date, sales, genre)
 VALUES ('AC/DC', 'Back in Black', '1980', 30.1, 'Hard Rock'),
  ('Whitney Houston', 'The Bodyguard', 1992, 28.7, 'R&B'),
