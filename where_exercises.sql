@@ -13,8 +13,7 @@ WHERE last_name LIKE '%q%';
 
 SELECT *
 FROM employees
-WHERE gender = 'M' AND first_name IN ('Irena', 'Vidya', 'Maya')
-   OR 'Maya';
+WHERE gender = 'M' AND first_name = 'Irena' OR first_name = 'Vidya' OR first_name = 'Maya';
 
 SELECT *
 FROM employees
