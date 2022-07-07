@@ -19,12 +19,14 @@ WHERE gender = 'M' AND first_name IN ('Irena', 'Vidya', 'Maya')
 
 SELECT *
 FROM employees
-WHERE last_name LIKE '%E%'
+WHERE last_name LIKE 'E%'
+   OR last_name LIKE '%e'
 ORDER BY emp_no DESC;
 
 SELECT *
 FROM employees
-WHERE last_name LIKE '%E%'
+WHERE last_name LIKE 'E%'
+  AND last_name LIKE '%e'
 ORDER BY emp_no DESC;
 
 SELECT DISTINCT *
