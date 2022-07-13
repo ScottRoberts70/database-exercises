@@ -31,23 +31,29 @@ WHERE titles.to_date = '9999-01-01'
   AND d.dept_name = 'Customer Service'
 GROUP BY titles.title;
 
-SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager', s.salary AS 'Salary'
+SELECT d.dept_name AS 'Department Name',
+       CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager',
+       s.salary AS 'Salary'
 FROM departments as d
-    JOIN dept_manager as dm
-ON d.dept_no = dm.dept_no
-JOIN employees as e
-ON dm.emp_no = e.emp_no
-JOIN salaries as s
-ON e.emp_no = s.emp_no
-WHERE dm.to_date = '9999-01-01' AND s.to_date = '9999-01-01';
+         JOIN dept_manager as dm
+              ON d.dept_no = dm.dept_no
+         JOIN employees as e
+              ON dm.emp_no = e.emp_no
+         JOIN salaries as s
+              ON e.emp_no = s.emp_no
+WHERE dm.to_date = '9999-01-01'
+  AND s.to_date = '9999-01-01';
 
-SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee', d.dept_name AS 'Department', CONCAT(managers.first_name, ' ', managers.last_name)  AS 'Manager'
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee',
+       d.dept_name AS 'Department',
+       CONCAT(managers.first_name, ' ', managers.last_name) AS 'Manager'
 FROM employees as e
-JOIN dept_emp de
-    ON e.emp_no = de.emp_no
-JOIN departments d
-    ON de.dept_no = d.dept_no
-JOIN dept_manager dm
-    ON d.dept_no = dm.dept_no
-JOIN employees AS managers ON managers.emp_no = dm.emp_no
-WHERE de.to_date = '9999-01-01' AND dm.to_date = '9999-01-01';
+         JOIN dept_emp de
+              ON e.emp_no = de.emp_no
+         JOIN departments d
+              ON de.dept_no = d.dept_no
+         JOIN dept_manager dm
+              ON d.dept_no = dm.dept_no
+         JOIN employees AS managers ON managers.emp_no = dm.emp_no
+WHERE de.to_date = '9999-01-01'
+  AND dm.to_date = '9999-01-01';

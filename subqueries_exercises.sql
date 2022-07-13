@@ -16,6 +16,7 @@ WHERE emp_no IN (
     WHERE first_name = 'Aamod'
     );
 
+
 SELECT first_name, last_name
 FROM employees
 WHERE emp_no IN (
@@ -44,3 +45,4 @@ WHERE emp_no IN (
     WHERE salary = (SELECT MAX(salary)
     FROM salaries
     ));
+
